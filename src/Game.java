@@ -56,7 +56,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		p = new Sound();
-		level = "select";
+		level = "start";
 		ships = setShips();
 		player = ships.get(i);
 		enemies = new ArrayList<>();
@@ -250,12 +250,12 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 				level = "game";
 				loadTimer = 200;
 			} else {
-				// level = "start";
+				level = "start";
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			// level = "start";
+			level = "start";
 		}
 	}
 
@@ -306,7 +306,8 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		g2d.drawImage(background.getImage(), 0, 0, getWidth(), getHeight(), this);
 		g2d.setColor(new Color(100, 225, 247));
 		g2d.setFont(new Font("Courier New", Font.BOLD, 200));
-		g2d.drawString("Space RPG", (getWidth() - g2d.getFontMetrics().stringWidth("Space RPG")) / 2, 400);
+		g2d.drawString("Galaxy", (getWidth() - g2d.getFontMetrics().stringWidth("Galaxy")) / 2, 350);
+		g2d.drawString("Guardians", (getWidth() - g2d.getFontMetrics().stringWidth("Guardians")) / 2, 500);
 		g2d.setColor(white);
 		g2d.setFont(new Font("Courier New", Font.BOLD, 60));
 		g2d.drawString("Press Space to start",
@@ -657,6 +658,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
 		}
 		p.playmusic("sounds\\snd_mercyadd.wav");
 	}
+	
 
 	public Enemy createRandomEnemy(int x, int y) {
 		int type = (int) (Math.random() * 4);
