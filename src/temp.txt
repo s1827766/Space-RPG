@@ -1,0 +1,33 @@
+private Map<String, ImageIcon> images = new HashMap<>();
+
+public Game() {
+    initImages();
+    new Thread(this).start();
+    // ... rest of constructor
+}
+
+private void initImages() {
+    String[][] paths = {
+        {"background", "images\\background\\space.png"},
+        {"redPlanet", "images\\background\\redPlanet.png"},
+        {"bluePlanet", "images\\background\\bluePlanet.png"},
+        {"purplePlanet", "images\\background\\purplePlanet.png"},
+        {"ringPlanet", "images\\background\\ringPlanet.png"},
+        {"blackHole", "images\\background\\blackHole.png"},
+        {"asteroid1", "images\\background\\asteroid1.png"},
+        {"asteroid2", "images\\background\\asteroid2.png"},
+        {"asteroid3", "images\\background\\asteroid3.png"},
+        {"border", "images\\ui\\border.png"},
+        {"attack", "images\\ui\\attackButton.png"},
+        {"ability", "images\\ui\\abilityButton.png"},
+        {"wasd", "images\\ui\\wasdButton.png"},
+        {"mouse", "images\\ui\\mouse.png"},
+        {"leftClick", "images\\ui\\leftClick.png"},
+        {"rightClick", "images\\ui\\rightClick.png"},
+        {"arrow", "images\\ui\\arrow.png"},
+    };
+    
+    for (String[] pair : paths) {
+        images.put(pair[0], new ImageIcon(pair[1]));
+    }
+}
